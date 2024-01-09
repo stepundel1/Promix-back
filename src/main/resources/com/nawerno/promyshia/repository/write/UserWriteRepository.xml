@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nawerno.promyshia.repository.write.UserWriteRepository">
     <select id="create" parameterType="com.nawerno.promyshia.entity.User" resultType="java.lang.Integer">
-        insert into users(email, name, password_hash) values
-        (#{u.email}, #{u.name}, #{passwordHash})
+        insert into users(email, name, password_hash, user_role) values
+        (#{u.email}, #{u.name}, #{passwordHash}, #{u.role}::role)
         returning id;
 
     </select>

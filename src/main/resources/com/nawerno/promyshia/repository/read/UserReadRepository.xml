@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nawerno.promyshia.repository.read.UserReadRepository">
+    <resultMap id="result" type="com.nawerno.promyshia.entity.User">
+        <id property="id" column="id"/>
+        <result property="email" column="email"/>
+        <result property="name" column="name"/>
+        <result property="role" column="user_role" typeHandler="com.nawerno.promyshia.handler.RoleEnumFromLowerCaseTypeHandler"/>
+        <result property="password" column="password_hash"/>
+    </resultMap>
+
+    <select id="getByEmail" resultMap="result">
+        select id, email, name, user_role, password_hash from users where email = #{email};
+    </select>
+</mapper>

@@ -42,7 +42,13 @@ public class AuthController {
     @PostMapping("/signup")
     @Operation(summary = "регистрация")
     public ResponseEntity<?> registerUser(@RequestBody User user){
+        if (userService.existsByEmail(user.getEmail())){
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("error: Email already taken"));
+        }
         userService.create(user, encoder.encode(user.getPassword()));
+
 
         return ResponseEntity.ok(new MessageResponse("получилось"));
     }
@@ -69,5 +75,4 @@ public class AuthController {
                 roles));
     }
 }
-
 
