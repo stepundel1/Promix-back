@@ -1,0 +1,1 @@
+alter table promos add column image_link varchar;

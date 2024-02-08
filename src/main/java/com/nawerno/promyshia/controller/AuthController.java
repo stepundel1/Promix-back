@@ -2,6 +2,7 @@ package com.nawerno.promyshia.controller;
 
 import com.nawerno.promyshia.entity.User;
 import com.nawerno.promyshia.payload.request.LoginRequest;
+import com.nawerno.promyshia.payload.response.BoolResponse;
 import com.nawerno.promyshia.payload.response.JwtResponse;
 import com.nawerno.promyshia.payload.response.MessageResponse;
 import com.nawerno.promyshia.security.jwt.JwtUtils;
@@ -45,12 +46,12 @@ public class AuthController {
         if (userService.existsByEmail(user.getEmail())){
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("error: Email already taken"));
+                    .body(new BoolResponse(false));
         }
         userService.create(user, encoder.encode(user.getPassword()));
 
 
-        return ResponseEntity.ok(new MessageResponse("получилось"));
+        return ResponseEntity.ok(new BoolResponse(true));
     }
 
     @PostMapping("/signin")

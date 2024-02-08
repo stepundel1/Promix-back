@@ -1,0 +1,1 @@
+create table if not exists promos(id serial primary key, name varchar, description varchar, selected_category varchar);
