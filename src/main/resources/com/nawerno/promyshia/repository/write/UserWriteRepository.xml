@@ -9,4 +9,9 @@
         returning id;
 
     </select>
+    <update id="updateToken">
+        update users
+        set token = #{token}
+        where id = #{id};
+    </update>
 </mapper>

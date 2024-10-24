@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PromoWriteRepository {
     int create(Promo p);
-
+    void createImage(int id, String path);
 }

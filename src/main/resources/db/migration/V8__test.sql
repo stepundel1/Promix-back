@@ -1,0 +1,1 @@
+create table test (id serial primary key, email varchar(255), name varchar(50))

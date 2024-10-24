@@ -8,4 +8,7 @@
         returning id;
 
     </select>
+    <update id="createImage">
+        update promos set image_link=#{path} where id = #{id};
+    </update>
 </mapper>

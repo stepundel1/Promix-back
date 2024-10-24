@@ -13,4 +13,5 @@ public class User {
     private String name;
     private RoleEnum role;
     private String password;
+    private String token;
 }
